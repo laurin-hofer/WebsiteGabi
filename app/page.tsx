@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { ArrowIcon, PlusIcon } from "@/components/icons";
 import { SystemVisual } from "@/components/system-visual";
 import { AnimationVisibility } from "@/components/animation-visibility";
+import { BackToTop } from "@/components/back-to-top";
 
 const services = [
   {
@@ -76,6 +77,7 @@ const jsonLd = [
     url: siteUrl,
     image: `${siteUrl}/images/gabriele-schauer-portrait-wide.jpg`,
     email: "gabrieleschauer@gmail.com",
+    telephone: "+4369917132093",
     address: { "@type": "PostalAddress", addressLocality: "Hall in Tirol", addressCountry: "AT" },
     areaServed: [{ "@type": "AdministrativeArea", name: "Tirol" }, { "@type": "Place", name: "Online" }],
     founder: { "@id": `${siteUrl}/#person` },
@@ -109,6 +111,7 @@ export default function Home() {
     <>
       <AnimationVisibility />
       <Header />
+      <BackToTop />
       <main id="main">
         <section id="top" aria-labelledby="hero-title" data-animate-when-visible data-in-view="true" className="relative min-h-[100svh] overflow-hidden bg-[#fbfcf9] pt-20">
           <div className="soft-grid pointer-events-none absolute inset-0" aria-hidden="true" />
@@ -141,7 +144,7 @@ export default function Home() {
                 className="object-cover object-[46%_center]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#173b3a]/25 via-transparent to-transparent" aria-hidden="true" />
-              <div className="floating-glass glass-surface absolute left-5 top-5 hidden rounded-2xl px-4 py-3 sm:block">
+              <div className="floating-glass glass-surface absolute left-5 top-5 hidden rounded-2xl px-4 py-3 sm:block lg:left-auto lg:right-5">
                 <p className="text-[.62rem] font-semibold uppercase tracking-[.14em] text-[#6c8c8b]">Systemischer Blick</p>
                 <p className="mt-1 text-sm font-medium">Mensch · Team · Organisation</p>
               </div>
@@ -155,7 +158,7 @@ export default function Home() {
               <p className="glass-surface absolute bottom-5 right-5 rounded-full px-4 py-2 text-xs font-medium text-[#173b3a]">Tirol & online</p>
             </div>
           </div>
-          <a href="#ansatz" aria-label="Weiter zum Ansatz" className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[.68rem] font-semibold uppercase tracking-[.16em] text-[#173b3a]/55 xl:flex">
+          <a href="#ansatz" aria-label="Weiter zum Ansatz" className="absolute bottom-7 left-1/4 hidden -translate-x-1/2 flex-col items-center gap-2 text-[.68rem] font-semibold uppercase tracking-[.16em] text-[#173b3a]/55 xl:flex">
             Entdecken <span className="h-10 w-px bg-[#6c8c8b]/50" />
           </a>
         </section>
@@ -166,7 +169,8 @@ export default function Home() {
             <Reveal><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#c2e3dc]">Mein Ansatz</p></Reveal>
             <Reveal delay={100}>
               <h2 className="display-balance max-w-5xl text-[clamp(2.5rem,5.2vw,5.4rem)] font-medium leading-[1.03] tracking-[-.035em]">
-                Entwicklung beginnt dort, wo neue Perspektiven <span className="text-[#e4da7b]">möglich werden.</span>
+                „Man kann einen Menschen nichts lehren, man kann ihm nur helfen, es in sich selbst zu <span className="text-[#e4da7b]">entdecken.</span>“
+                <span className="mt-6 block text-base font-medium tracking-normal text-white/60 sm:text-lg">Galileo Galilei</span>
               </h2>
               <div className="mt-12 grid max-w-4xl gap-8 border-t border-white/15 pt-8 sm:grid-cols-2">
                 <p className="text-pretty text-base leading-8 text-white/72">Ich betrachte nicht nur das sichtbare Anliegen, sondern das Zusammenspiel von Person, Beziehung und Organisation. So wird verständlich, was wirkt – und wo Bewegung entstehen kann.</p>
@@ -182,7 +186,7 @@ export default function Home() {
             <Reveal>
               <p className="eyebrow mb-5">Systemisch denken</p>
               <h2 id="system-title" className="display-balance text-[clamp(2.8rem,5vw,5.2rem)] font-medium leading-[1] tracking-[-.045em]">Nicht nur das Problem sehen. Das <span className="text-[#6c8c8b]">System verstehen.</span></h2>
-              <p className="mt-8 max-w-xl text-lg leading-8 text-[#173b3a]/68">In Organisationen wirkt nichts für sich allein. Rollen, Beziehungen, Erwartungen und Strukturen beeinflussen einander. Die animierte Landkarte macht diesen Blick sichtbar: Bewegung an einer Stelle verändert das Ganze.</p>
+              <p className="mt-8 max-w-xl text-lg leading-8 text-[#173b3a]/68">In Organisationen wirkt nichts für sich allein. Rollen, Beziehungen, Erwartungen und Strukturen beeinflussen einander. Bewegung an einer Stelle verändert das Ganze.</p>
               <div className="mt-9 grid max-w-xl grid-cols-3 gap-2">
                 {[["01", "Wahrnehmen"], ["02", "Verstehen"], ["03", "Verändern"]].map(([number, label]) => (
                   <div key={label} className="glass-surface rounded-2xl p-3 sm:p-4">
@@ -384,11 +388,15 @@ export default function Home() {
               <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#e4da7b]">Kontakt</p>
               <h2 id="kontakt-title" className="display-balance mt-6 max-w-5xl text-[clamp(3rem,7vw,7rem)] font-medium leading-[.95] tracking-[-.05em]">Was möchten Sie<br />in Bewegung bringen?</h2>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-white/78">Erzählen Sie mir kurz, worum es geht. In einem unverbindlichen Erstgespräch finden wir heraus, welcher Rahmen zu Ihrem Anliegen passt.</p>
+              <p className="mt-8 text-xl font-semibold text-white">Mag. Dr. Gabriele Schauer</p>
               <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
                 <a href="mailto:gabrieleschauer@gmail.com?subject=Anfrage%20Erstgespr%C3%A4ch" className="group inline-flex items-center gap-4 rounded-full bg-[#fbfcf9] px-7 py-4 font-semibold text-[#173b3a] transition-transform hover:-translate-y-0.5">
                   Erstgespräch anfragen <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
-                <a href="mailto:gabrieleschauer@gmail.com" className="text-sm font-medium text-white underline decoration-white/45 underline-offset-8">gabrieleschauer@gmail.com</a>
+                <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
+                  <a href="mailto:gabrieleschauer@gmail.com" className="text-lg font-medium text-white underline decoration-white/45 underline-offset-8 sm:text-xl">gabrieleschauer@gmail.com</a>
+                  <a href="tel:+4369917132093" className="rounded-full bg-[#e4da7b] px-5 py-3 text-base font-semibold text-[#173b3a] transition-transform hover:-translate-y-0.5">+43 699 17132093</a>
+                </div>
               </div>
               <p className="mt-8 text-sm text-white/60">Hall in Tirol · Termine nach Vereinbarung · Online-Begleitung möglich</p>
             </Reveal>
