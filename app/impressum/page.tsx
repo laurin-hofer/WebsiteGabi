@@ -28,7 +28,7 @@ export default function Impressum() {
             <section aria-labelledby="kontakt-impressum">
               <h2 id="kontakt-impressum" className="text-2xl font-medium">Kontakt</h2>
               <div className="mt-5 space-y-2 leading-7 text-[#173b3a]/75">
-                <p>E-Mail: <a className="underline decoration-[#d7c370] decoration-2 underline-offset-4" href="mailto:gabrieleschauer@gmail.com">gabrieleschauer@gmail.com</a></p>
+                <p>E-Mail: <a className="underline decoration-[#d7c370] decoration-2 underline-offset-4" href="mailto:office@gabrieleschauer.at">office@gabrieleschauer.at</a></p>
                 <p>Telefon: <a className="underline decoration-[#d7c370] decoration-2 underline-offset-4" href="tel:+4369917132093">+43 699 17132093</a></p>
               </div>
             </section>

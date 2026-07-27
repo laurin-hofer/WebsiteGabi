@@ -76,7 +76,7 @@ const jsonLd = [
     name: "Gabriele Schauer – Supervision & Coaching",
     url: siteUrl,
     image: `${siteUrl}/images/gabriele-schauer-portrait-wide.jpg`,
-    email: "gabrieleschauer@gmail.com",
+    email: "office@gabrieleschauer.at",
     telephone: "+4369917132093",
     address: { "@type": "PostalAddress", addressLocality: "Hall in Tirol", addressCountry: "AT" },
     areaServed: [{ "@type": "AdministrativeArea", name: "Tirol" }, { "@type": "Place", name: "Online" }],
@@ -136,7 +136,7 @@ export default function Home() {
 
             <div className="relative min-h-[30rem] overflow-hidden rounded-[2rem] bg-[#c2e3dc] sm:min-h-[38rem] lg:h-[min(76vh,50rem)]">
               <Image
-                src="/images/gabriele-schauer-portrait-wide.jpg"
+                src="/images/gabriele-schauer-portrait.jpg"
                 alt="Mag. Dr. Gabriele Schauer im Portrait"
                 fill
                 priority
@@ -339,7 +339,7 @@ export default function Home() {
           <div className="container-shell grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-24">
             <Reveal>
               <div className="relative mx-auto aspect-[3/4] max-w-xl overflow-hidden rounded-[2rem] bg-[#c2e3dc] lg:mx-0">
-                <Image src="/images/gabriele-schauer-portrait.jpg" alt="Gabriele Schauer, Supervisorin und Coachin" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
+                <Image src="/images/gabriele-schauer-portrait-wide.jpg" alt="Gabriele Schauer, Supervisorin und Coachin" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
                 <div className="absolute bottom-5 left-5 h-16 w-16 rounded-full bg-[#d7c370]/85" aria-hidden="true" />
               </div>
             </Reveal>
@@ -390,11 +390,11 @@ export default function Home() {
               <p className="mt-8 max-w-2xl text-lg leading-8 text-white/78">Erzählen Sie mir kurz, worum es geht. In einem unverbindlichen Erstgespräch finden wir heraus, welcher Rahmen zu Ihrem Anliegen passt.</p>
               <p className="mt-8 text-xl font-semibold text-white">Mag. Dr. Gabriele Schauer</p>
               <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-                <a href="mailto:gabrieleschauer@gmail.com?subject=Anfrage%20Erstgespr%C3%A4ch" className="group inline-flex items-center gap-4 rounded-full bg-[#fbfcf9] px-7 py-4 font-semibold text-[#173b3a] transition-transform hover:-translate-y-0.5">
+                <a href="mailto:office@gabrieleschauer.at?subject=Anfrage%20Erstgespr%C3%A4ch" className="group inline-flex items-center gap-4 rounded-full bg-[#fbfcf9] px-7 py-4 font-semibold text-[#173b3a] transition-transform hover:-translate-y-0.5">
                   Erstgespräch anfragen <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
                 <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
-                  <a href="mailto:gabrieleschauer@gmail.com" className="text-lg font-medium text-white underline decoration-white/45 underline-offset-8 sm:text-xl">gabrieleschauer@gmail.com</a>
+                  <a href="mailto:office@gabrieleschauer.at" className="text-lg font-medium text-white underline decoration-white/45 underline-offset-8 sm:text-xl">office@gabrieleschauer.at</a>
                   <a href="tel:+4369917132093" className="rounded-full bg-[#e4da7b] px-5 py-3 text-base font-semibold text-[#173b3a] transition-transform hover:-translate-y-0.5">+43 699 17132093</a>
                 </div>
               </div>
