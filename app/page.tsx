@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/reveal";
-import { ArrowIcon, PlusIcon } from "@/components/icons";
+import { ArrowIcon, LinkedInIcon, PlusIcon } from "@/components/icons";
 import { SystemVisual } from "@/components/system-visual";
 import { AnimationVisibility } from "@/components/animation-visibility";
 import { BackToTop } from "@/components/back-to-top";
@@ -92,7 +92,10 @@ const jsonLd = [
     url: siteUrl,
     image: `${siteUrl}/images/gabriele-schauer-portrait.jpg`,
     affiliation: { "@type": "CollegeOrUniversity", name: "Universität Innsbruck", url: "https://www.uibk.ac.at/" },
-    sameAs: ["https://www.uibk.ac.at/de/ils/mitarbeiter/schauer/"],
+    sameAs: [
+      "https://www.uibk.ac.at/de/ils/mitarbeiter/schauer/",
+      "https://www.linkedin.com/in/gabriele-schauer-b20992153",
+    ],
     knowsAbout: ["Systemische Beratung", "Supervision", "Coaching", "Pädagogische Beziehungen", "Professionalisierung"],
   },
   {
@@ -351,8 +354,8 @@ export default function Home() {
                 <p>Als Senior Lecturer an der Universität Innsbruck beschäftige ich mich unter anderem mit professioneller Haltung, pädagogischen Beziehungen und der Entwicklung beruflicher Handlungskompetenz. In meine Beratung fließen wissenschaftliche Sorgfalt und langjährige Praxiserfahrung gleichermaßen ein.</p>
                 <p>Meine Ausbildung in systemischer Supervision und Coaching absolviere ich beim ÖVS-zertifizierten Arbeitskreis ASYS. Leitend ist für mich die Verbindung von Denken, Fühlen und Handeln.</p>
               </div>
-              <div className="mt-9 flex flex-wrap gap-2" aria-label="Mitgliedschaften">
-                {["ÖVS", "ASYS", "ÖFEB", "DGfE", "IGSP"].map((item) => <span key={item} className="rounded-full border border-[#6c8c8b]/30 px-4 py-2 text-xs font-semibold tracking-[.08em]">{item}</span>)}
+              <div className="mt-9 w-fit max-w-full rounded-2xl border border-[#6c8c8b]/20 bg-white p-4 shadow-[0_16px_45px_rgba(23,59,58,.08)]">
+                <Image src="/images/oevs-logo-mitglied.jpg" alt="Mitglied der Österreichischen Vereinigung für Supervision und Coaching" width={1024} height={260} className="h-auto w-full max-w-md" />
               </div>
               <a href="https://www.uibk.ac.at/de/ils/mitarbeiter/schauer/" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-3 text-sm font-semibold underline decoration-[#d7c370] decoration-2 underline-offset-8">Wissenschaftliches Profil <span className="sr-only">(öffnet in neuem Fenster)</span><ArrowIcon className="h-4 w-4" /></a>
             </Reveal>
@@ -396,6 +399,9 @@ export default function Home() {
                 <div className="flex flex-col items-start gap-4 lg:flex-row lg:items-center">
                   <a href="mailto:office@gabrieleschauer.at" className="text-lg font-medium text-white underline decoration-white/45 underline-offset-8 sm:text-xl">office@gabrieleschauer.at</a>
                   <a href="tel:+4369917132093" className="rounded-full bg-[#e4da7b] px-5 py-3 text-base font-semibold text-[#173b3a] transition-transform hover:-translate-y-0.5">+43 699 17132093</a>
+                  <a href="https://www.linkedin.com/in/gabriele-schauer-b20992153" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-3 text-base font-semibold text-white transition-[background,transform] hover:-translate-y-0.5 hover:bg-white/10">
+                    <LinkedInIcon className="h-5 w-5" /> LinkedIn<span className="sr-only"> (öffnet in neuem Fenster)</span>
+                  </a>
                 </div>
               </div>
               <p className="mt-8 text-sm text-white/60">Hall in Tirol · Termine nach Vereinbarung · Online-Begleitung möglich</p>
