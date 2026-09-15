@@ -19,6 +19,7 @@ export function Footer() {
         <p>© {new Date().getFullYear()} Mag. Dr. Gabriele Schauer</p>
         <div className="flex flex-wrap gap-x-5 gap-y-2 sm:justify-end">
           <Link className="transition-colors hover:text-white" href="/impressum">Impressum</Link>
+          <Link className="transition-colors hover:text-white" href="/datenschutz">Datenschutz</Link>
           <p>Fotografie: Andreas Friedle</p>
         </div>
       </div>

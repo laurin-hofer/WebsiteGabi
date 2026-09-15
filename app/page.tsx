@@ -3,34 +3,63 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/reveal";
 import { ArrowIcon, LinkedInIcon, PlusIcon } from "@/components/icons";
+import { ServiceAccordion, type Service } from "@/components/service-accordion";
 import { SystemVisual } from "@/components/system-visual";
 import { AnimationVisibility } from "@/components/animation-visibility";
 import { BackToTop } from "@/components/back-to-top";
 
-const services = [
+const services: Service[] = [
   {
+    id: "supervision",
     number: "01",
     title: "Supervision",
     text: "Berufliche Situationen reflektieren, Dynamiken verstehen und das eigene Handeln sicher ausrichten.",
-    href: "#supervision",
+    eyebrow: "01 · Supervision",
+    heading: "Berufliche Praxis mit Abstand betrachten.",
+    body: "Supervision schafft einen verlässlichen Reflexionsraum. Fälle, Rollen und Arbeitsbeziehungen werden aus mehreren Blickwinkeln verständlich – damit Sie bewusst, sicher und professionell handeln können.",
+    detail: {
+      kind: "list",
+      label: "Formen der Supervision",
+      items: [
+        ["Einzelsupervision", "für Rollenklärung, Orientierung und berufliche Entwicklung"],
+        ["Fallsupervision", "für neue Sichtweisen auf komplexe Situationen"],
+        ["Gruppensupervision", "für fachübergreifende Impulse und kollegiales Lernen"],
+      ],
+    },
   },
   {
+    id: "coaching",
     number: "02",
     title: "Coaching",
     text: "Rollen klären, Entscheidungen fundiert treffen und Führung mit Haltung gestalten.",
-    href: "#coaching",
+    eyebrow: "02 · Coaching",
+    heading: "Entscheiden und führen, ohne sich selbst zu verlieren.",
+    body: "Coaching unterstützt Sie dabei, Prioritäten zu ordnen, Ihre Wirkung zu verstehen und einen eigenen, tragfähigen Weg zu entwickeln. Der Fokus bleibt dabei immer auf Ihrem Ziel und Ihrer konkreten Situation.",
+    detail: { kind: "quote", text: "„Nicht die schnelle Antwort zählt, sondern die Frage, die etwas in Bewegung bringt.“" },
   },
   {
+    id: "teamentwicklung",
     number: "03",
     title: "Teamentwicklung",
     text: "Zusammenarbeit stärken, Spannungen produktiv bearbeiten und gemeinsame Verbindlichkeit schaffen.",
-    href: "#teamentwicklung",
+    eyebrow: "03 · Teams",
+    heading: "Zusammenarbeit, die auch unter Druck trägt.",
+    body: "Teamsupervision und Teamentwicklung machen Erwartungen, Rollen und Kommunikationsmuster besprechbar. Das stärkt Vertrauen, Verantwortungsübernahme und eine Kultur, in der gute Arbeit gelingen kann.",
+    detail: {
+      kind: "tags",
+      label: "Mögliche Schwerpunkte",
+      text: "Standortbestimmung · Rollen und Ziele · Feedbackkultur · Konfliktklärung · Übergänge · Resilienz",
+    },
   },
   {
+    id: "leitbild",
     number: "04",
     title: "Leitbildentwicklung",
     text: "Werte verdichten, Orientierung geben und Identität im Alltag erlebbar machen.",
-    href: "#leitbild",
+    eyebrow: "04 · Organisation",
+    heading: "Ein Leitbild, das nicht nur an der Wand hängt.",
+    body: "Ein tragfähiges Leitbild übersetzt gelebte Werte in klare Orientierung. Ich moderiere den Prozess vom gemeinsamen Erkunden bis zu prägnanten Leitsätzen – partizipativ, strukturiert und anschlussfähig an den Alltag.",
+    detail: { kind: "cta", label: "Prozess besprechen", href: "#kontakt" },
   },
 ];
 
@@ -215,18 +244,7 @@ export default function Home() {
               <p className="max-w-xl text-pretty text-lg leading-8 text-[#173b3a]/65 lg:justify-self-end">Jedes Anliegen braucht einen eigenen Rahmen. Gemeinsam klären wir, welches Format Orientierung schafft und nachhaltig in den Alltag wirkt.</p>
             </Reveal>
 
-            <div className="mt-16 grid border-l border-t border-[#6c8c8b]/25 sm:grid-cols-2 lg:grid-cols-4">
-              {services.map((service, index) => (
-                <Reveal key={service.title} delay={index * 80} className="h-full">
-                  <article className="service-card relative flex h-full min-h-80 flex-col border-b border-r border-[#6c8c8b]/25 bg-white/70 p-6 transition-[background,transform,box-shadow] duration-500 hover:z-10 hover:-translate-y-2 hover:bg-white/90 hover:shadow-[0_25px_70px_rgba(23,59,58,.12)] sm:p-8">
-                    <p className="text-xs font-semibold tracking-[.12em] text-[#6c8c8b]">{service.number}</p>
-                    <h3 className="mt-10 text-3xl font-medium tracking-[-.025em]">{service.title}</h3>
-                    <p className="mt-5 text-[.96rem] leading-7 text-[#173b3a]/65">{service.text}</p>
-                    <a href={service.href} aria-label={`Mehr über ${service.title}`} className="mt-auto inline-flex w-fit items-center gap-3 pt-8 text-sm font-semibold">Mehr erfahren <ArrowIcon className="h-4 w-4" /></a>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
+            <ServiceAccordion services={services} />
           </div>
         </section>
 
@@ -246,98 +264,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-label="Leistungen im Detail" className="py-24 sm:py-32 lg:py-40">
-          <div className="container-shell space-y-24 sm:space-y-32">
-            <Reveal>
-              <article id="supervision" className="grid gap-10 border-t border-[#6c8c8b]/30 pt-8 lg:grid-cols-[.36fr_1fr] lg:gap-20">
-                <div><p className="eyebrow">01 · Supervision</p></div>
-                <div className="grid gap-10 md:grid-cols-[1.05fr_.95fr]">
-                  <div>
-                    <h2 className="display-balance text-4xl font-medium leading-[1.08] tracking-[-.035em] sm:text-5xl">Berufliche Praxis mit Abstand betrachten.</h2>
-                    <p className="mt-6 max-w-xl text-lg leading-8 text-[#173b3a]/66">Supervision schafft einen verlässlichen Reflexionsraum. Fälle, Rollen und Arbeitsbeziehungen werden aus mehreren Blickwinkeln verständlich – damit Sie bewusst, sicher und professionell handeln können.</p>
-                  </div>
-                  <ul className="space-y-4 text-[.96rem] leading-7 text-[#173b3a]/75" aria-label="Formen der Supervision">
-                    {[
-                      ["Einzelsupervision", "für Rollenklärung, Orientierung und berufliche Entwicklung"],
-                      ["Fallsupervision", "für neue Sichtweisen auf komplexe Situationen"],
-                      ["Gruppensupervision", "für fachübergreifende Impulse und kollegiales Lernen"],
-                    ].map(([title, text]) => <li key={title} className="border-b border-[#6c8c8b]/20 pb-4"><strong className="block font-semibold text-[#173b3a]">{title}</strong>{text}</li>)}
-                  </ul>
-                </div>
-              </article>
-            </Reveal>
-
-            <Reveal>
-              <article id="coaching" className="grid gap-10 border-t border-[#6c8c8b]/30 pt-8 lg:grid-cols-[.36fr_1fr] lg:gap-20">
-                <div><p className="eyebrow">02 · Coaching</p></div>
-                <div className="grid gap-10 md:grid-cols-[1.05fr_.95fr]">
-                  <div>
-                    <h2 className="display-balance text-4xl font-medium leading-[1.08] tracking-[-.035em] sm:text-5xl">Entscheiden und führen, ohne sich selbst zu verlieren.</h2>
-                    <p className="mt-6 max-w-xl text-lg leading-8 text-[#173b3a]/66">Coaching unterstützt Sie dabei, Prioritäten zu ordnen, Ihre Wirkung zu verstehen und einen eigenen, tragfähigen Weg zu entwickeln. Der Fokus bleibt dabei immer auf Ihrem Ziel und Ihrer konkreten Situation.</p>
-                  </div>
-                  <blockquote className="self-end border-l-2 border-[#d7c370] pl-6 text-2xl font-medium leading-snug tracking-[-.02em] text-[#173b3a]/90">„Nicht die schnelle Antwort zählt, sondern die Frage, die etwas in Bewegung bringt.“</blockquote>
-                </div>
-              </article>
-            </Reveal>
-
-            <Reveal>
-              <article id="teamentwicklung" className="grid gap-10 border-t border-[#6c8c8b]/30 pt-8 lg:grid-cols-[.36fr_1fr] lg:gap-20">
-                <div><p className="eyebrow">03 · Teams</p></div>
-                <div className="grid gap-10 md:grid-cols-[1.05fr_.95fr]">
-                  <div>
-                    <h2 className="display-balance text-4xl font-medium leading-[1.08] tracking-[-.035em] sm:text-5xl">Zusammenarbeit, die auch unter Druck trägt.</h2>
-                    <p className="mt-6 max-w-xl text-lg leading-8 text-[#173b3a]/66">Teamsupervision und Teamentwicklung machen Erwartungen, Rollen und Kommunikationsmuster besprechbar. Das stärkt Vertrauen, Verantwortungsübernahme und eine Kultur, in der gute Arbeit gelingen kann.</p>
-                  </div>
-                  <div className="rounded-[1.5rem] bg-[#c7ce9d]/45 p-7">
-                    <p className="text-xs font-semibold uppercase tracking-[.16em] text-[#6c8c8b]">Mögliche Schwerpunkte</p>
-                    <p className="mt-4 leading-7 text-[#173b3a]/75">Standortbestimmung · Rollen und Ziele · Feedbackkultur · Konfliktklärung · Übergänge · Resilienz</p>
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-
-            <Reveal>
-              <article id="leitbild" className="grid gap-10 border-t border-[#6c8c8b]/30 pt-8 lg:grid-cols-[.36fr_1fr] lg:gap-20">
-                <div><p className="eyebrow">04 · Organisation</p></div>
-                <div className="grid gap-10 md:grid-cols-[1.05fr_.95fr]">
-                  <div>
-                    <h2 className="display-balance text-4xl font-medium leading-[1.08] tracking-[-.035em] sm:text-5xl">Ein Leitbild, das nicht nur an der Wand hängt.</h2>
-                    <p className="mt-6 max-w-xl text-lg leading-8 text-[#173b3a]/66">Ein tragfähiges Leitbild übersetzt gelebte Werte in klare Orientierung. Ich moderiere den Prozess vom gemeinsamen Erkunden bis zu prägnanten Leitsätzen – partizipativ, strukturiert und anschlussfähig an den Alltag.</p>
-                  </div>
-                  <a href="#kontakt" className="group self-end inline-flex w-fit items-center gap-4 rounded-full border border-[#6c8c8b]/40 px-6 py-4 text-sm font-semibold transition-colors hover:bg-[#173b3a] hover:text-white">Prozess besprechen <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
-                </div>
-              </article>
-            </Reveal>
-          </div>
-        </section>
-
-        <section aria-labelledby="ablauf-title" className="bg-[#e4da7b]/55 py-24 sm:py-32">
-          <div className="container-shell">
-            <Reveal className="grid gap-8 lg:grid-cols-2">
-              <div>
-                <p className="eyebrow mb-5">Zusammenarbeit</p>
-                <h2 id="ablauf-title" className="display-balance text-5xl font-medium leading-[1] tracking-[-.04em] sm:text-6xl">Klarer Rahmen.<br />Offener Prozess.</h2>
-              </div>
-              <p className="max-w-lg self-end text-lg leading-8 text-[#173b3a]/68 lg:justify-self-end">Sie wissen von Anfang an, woran Sie sind. Ziele, Rollen und Vorgehen werden transparent vereinbart und im Prozess regelmäßig überprüft.</p>
-            </Reveal>
-            <div className="mt-16 grid gap-4 md:grid-cols-3">
-              {[
-                ["01", "Verstehen", "Im Erstgespräch klären wir Anlass, Ziel und den passenden Rahmen."],
-                ["02", "Erkunden", "Wir machen Muster sichtbar, aktivieren Ressourcen und öffnen Perspektiven."],
-                ["03", "Verankern", "Erkenntnisse werden zu konkreten, realistischen Schritten für den Alltag."],
-              ].map(([number, title, text], index) => (
-                <Reveal key={title} delay={index * 90}>
-                  <div className="glass-surface min-h-64 rounded-[1.5rem] p-7 transition-transform duration-500 hover:-translate-y-2 sm:p-9">
-                    <p className="text-xs font-semibold text-[#6c8c8b]">{number}</p>
-                    <h3 className="mt-10 text-3xl font-medium tracking-[-.025em]">{title}</h3>
-                    <p className="mt-4 leading-7 text-[#173b3a]/65">{text}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="ueber-mich" aria-labelledby="ueber-title" className="py-24 sm:py-32 lg:py-40">
           <div className="container-shell grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-24">
             <Reveal>
@@ -350,12 +276,16 @@ export default function Home() {
               <p className="eyebrow mb-5">Über mich</p>
               <h2 id="ueber-title" className="display-balance text-[clamp(2.8rem,5vw,5.2rem)] font-medium leading-[1] tracking-[-.045em]">Wissenschaftlich fundiert. Menschlich zugewandt.</h2>
               <div className="mt-9 space-y-6 text-lg leading-8 text-[#173b3a]/68">
-                <p>Mein beruflicher Weg verbindet pädagogische Praxis, Führung, Forschung und Lehre. Diese Perspektiven prägen meinen Blick auf Menschen in Organisationen: differenziert, systemisch und immer nah an der konkreten Situation.</p>
-                <p>Als Senior Lecturer an der Universität Innsbruck beschäftige ich mich unter anderem mit professioneller Haltung, pädagogischen Beziehungen und der Entwicklung beruflicher Handlungskompetenz. In meine Beratung fließen wissenschaftliche Sorgfalt und langjährige Praxiserfahrung gleichermaßen ein.</p>
-                <p>Meine Ausbildung in systemischer Supervision und Coaching absolviere ich beim ÖVS-zertifizierten Arbeitskreis ASYS. Leitend ist für mich die Verbindung von Denken, Fühlen und Handeln.</p>
+                <p>Ich verbinde pädagogische Praxis, Führung, Forschung und Lehre – mit langjähriger Erfahrung im öffentlichen Dienst und in hierarchischen Strukturen. Diese Perspektiven prägen meinen Blick auf Menschen in Organisationen: differenziert, systemisch und immer nah an der konkreten Situation.</p>
+                <p>Als ausgebildete Kindergärtnerin, ehemalige Horterzieherin und Leiterin studierte ich zusätzlich Erziehungswissenschaft mit dem Schwerpunkt der Beratung und Grundlagen der Psychotherapie. Heute arbeite ich als wissenschaftliche Mitarbeiterin und Dozentin an der Universität Innsbruck im Bereich der Lehrer.innenbildung und Schulforschung zu professioneller Haltung, pädagogischen Beziehungen und beruflicher Handlungskompetenz und berate mit wissenschaftlicher Sorgfalt und Praxisnähe. Aktuell absolviere ich eine systemische Supervisions- und Coachingausbildung (ÖVS, ASYS).</p>
               </div>
-              <div className="mt-9 w-fit max-w-full rounded-2xl border border-[#6c8c8b]/20 bg-white p-4 shadow-[0_16px_45px_rgba(23,59,58,.08)]">
-                <Image src="/images/oevs-logo-mitglied.jpg" alt="Mitglied der Österreichischen Vereinigung für Supervision und Coaching" width={1024} height={260} className="h-auto w-full max-w-md" />
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <div className="rounded-2xl border border-[#6c8c8b]/20 bg-white px-5 py-4 shadow-[0_16px_45px_rgba(23,59,58,.08)]">
+                  <Image src="/images/oevs-logo-mitglied.jpg" alt="Mitglied der Österreichischen Vereinigung für Supervision und Coaching (ÖVS)" width={512} height={130} className="h-12 w-auto sm:h-14" />
+                </div>
+                <div className="rounded-2xl border border-[#6c8c8b]/20 bg-white px-5 py-4 shadow-[0_16px_45px_rgba(23,59,58,.08)]">
+                  <Image src="/images/asys-logo.png" alt="ASYS – Arbeitskreis für systemische Supervision, Beratung und Therapie" width={400} height={259} className="h-12 w-auto sm:h-14" />
+                </div>
               </div>
               <a href="https://www.uibk.ac.at/de/ils/mitarbeiter/schauer/" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-3 text-sm font-semibold underline decoration-[#d7c370] decoration-2 underline-offset-8">Wissenschaftliches Profil <span className="sr-only">(öffnet in neuem Fenster)</span><ArrowIcon className="h-4 w-4" /></a>
             </Reveal>

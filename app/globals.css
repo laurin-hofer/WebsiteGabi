@@ -283,7 +283,8 @@ main > section:not(:first-child) {
 }
 
 .service-card:hover::after,
-.service-card:focus-within::after { transform: scaleX(1); }
+.service-card:focus-visible::after,
+.service-card[aria-expanded="true"]::after { transform: scaleX(1); }
 
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
@@ -307,4 +308,39 @@ details > summary::-webkit-details-marker { display: none; }
   .system-label-team { right: 4%; top: 20%; }
   .system-label-org { left: 5%; bottom: 18%; }
   .system-caption { left: 4%; right: 4%; justify-content: center; }
+}
+
+/* Angebot-Akkordeon: Karten bleiben im Raster, das geöffnete Panel spannt sich
+   über die volle Breite in die Zeile direkt unter seiner Karte. */
+.service-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.service-panel {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 40rem) and (max-width: 63.999rem) {
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .service-grid [data-service-trigger="0"] { grid-area: 1 / 1; }
+  .service-grid [data-service-trigger="1"] { grid-area: 1 / 2; }
+  .service-grid [data-service-panel="0"],
+  .service-grid [data-service-panel="1"] { grid-area: 2 / 1 / auto / -1; }
+  .service-grid [data-service-trigger="2"] { grid-area: 3 / 1; }
+  .service-grid [data-service-trigger="3"] { grid-area: 3 / 2; }
+  .service-grid [data-service-panel="2"],
+  .service-grid [data-service-panel="3"] { grid-area: 4 / 1 / auto / -1; }
+}
+
+@media (min-width: 64rem) {
+  .service-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .service-grid [data-service-trigger="0"] { grid-area: 1 / 1; }
+  .service-grid [data-service-trigger="1"] { grid-area: 1 / 2; }
+  .service-grid [data-service-trigger="2"] { grid-area: 1 / 3; }
+  .service-grid [data-service-trigger="3"] { grid-area: 1 / 4; }
+  .service-grid [data-service-panel] { grid-area: 2 / 1 / auto / -1; }
 }
